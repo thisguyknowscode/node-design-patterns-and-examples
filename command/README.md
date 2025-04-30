@@ -4,13 +4,13 @@ The Command Pattern encapsulates a request as an object, letting you parameteriz
 
 The command interfact defines a common contract to run all taco commands.
 
-```
+```typescript
 interface TacoCommand {
 	execute(): void;
 }
 ```
 Here is our example command object.
-```
+```typescript
 const cheeseCommand: TacoCommand = {
 	execute() {
 		console.log("Cheese added");
@@ -18,7 +18,7 @@ const cheeseCommand: TacoCommand = {
 };
 ```
 The taco controller will execute the requested taco command,
-```
+```typescript
 const TacoController = {
 	commands: { cheeseCommand, sourCreamCommand },
 
@@ -28,7 +28,7 @@ const TacoController = {
 };
 ```
 Finally, we can add our toppings. 
-```
+```typescript
 // IIFE for sccope control and cleanliness
 (() => {
 	TacoController.executeCommand(TacoController.commands.cheeseCommand); // Output: Cheese added
